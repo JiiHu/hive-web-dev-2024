@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import localFont from 'next/font/local'
+import Link from 'next/link'
+import HolyLoader from 'holy-loader'
+
 import './globals.css'
 
 const geistSans = localFont({
@@ -24,8 +28,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <HolyLoader />
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <nav className="max-w-5xl mx-auto px-4 py-4 flex justify-between">
+            <Link href="/">Hive Spotify App</Link>
+
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </nav>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

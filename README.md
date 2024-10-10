@@ -2,7 +2,7 @@
 
 This is project was created for a live coding session at [Hive Helsinki](https://www.hive.fi/en/) in October 2024. Goal of the session was to showcase how to get started with Web Development using React, Next.js, Tailwind CSS, and Spotify APIs.
 
-This is v2.0 based on the [2023 presentation](https://github.com/JiiHu/hive-web-dev).
+This is v2.0 based on the [2023 presentation](https://github.com/JiiHu/hive-web-dev). This is also a version that uses full client side rendering for pretty much the same end result.
 
 We will be using [Next.js](https://nextjs.org/) React framework and it's [App Router](https://nextjs.org/docs/app) version. `App Router` differs from "traditional" React in a way that all the content is rendered on server unless you explicitly say that you want to render content in browser using `use client` on top of a component. Here is short [Introduction to App Router](https://www.youtube.com/watch?v=DrxiNfbr63s).
 
