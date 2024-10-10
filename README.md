@@ -31,8 +31,9 @@ Here is the list of steps one needs to complete to get to same point as I was be
     - src/ directory: `No`
     - App Router: `Yes`
     - customise import alias: `No`
-- Install `eslint`
-  - Read more about eslint from [Why (and how) to use eslint](https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7) article
+- Install `eslint` and `prettier`
+  - Read more about `eslint` from [Why (and how) to use eslint](https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7) article
+  - Read more about `prettier` from [3 reasons to use prettier](https://medium.com/geekculture/3-reasons-to-use-prettier-for-code-formatting-91d04c064538) article
   - Install all needed packages for nice configuration
     - `npm install --save @babel/eslint-parser`
     - `npn install --save-dev eslint-config-airbnb`
@@ -43,7 +44,7 @@ Here is the list of steps one needs to complete to get to same point as I was be
     - `npm install --save-dev @typescript-eslint/parser`
     - `npm install --save-dev @typescript-eslint/eslint-plugin`
 - Copy nice `eslint` and `prettier` rules to `.eslintrc.js` and `.prettierrc.js`
-  - I took these from my previous projects so there is no source to be shared
+  - I took these from my previous projects so there is no source to be shared. Feel free copy these rules to your future projects as well.
 
 ## Steps in live coding
 
@@ -95,7 +96,16 @@ user-read-private
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/) through [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node)
 - [Clerk](https://clerk.com) to authenticate with Spotify
   - If you want to do auth without 3rd party service, you can use [Auth.js](https://authjs.dev) instead
+- [VS Code](https://code.visualstudio.com/) for coding
+  - My Extensions
+    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+    - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-## Things to read
+## Other notes
 
-- Advanced: [Instant Search Params](https://buildui.com/posts/instant-search-params-with-react-server-components)
+- Advanced search: [Instant Search Params](https://buildui.com/posts/instant-search-params-with-react-server-components)
+- If I'd add a database to this project, I would use:
+  - [Neon](https://neon.tech/) Postgres for hosting
+  - [drizzle](https://orm.drizzle.team/) ORM to connect to the database
