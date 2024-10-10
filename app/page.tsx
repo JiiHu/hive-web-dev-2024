@@ -3,13 +3,19 @@ import SpotifyTrackLink from '@/components/Spotify/TrackLink'
 
 import useSpotifyApi from '@/lib/spotifyApi'
 
+const PER_PAGE = 100
+
 export default async function Home({ searchParams }) {
   const spotifyApi = await useSpotifyApi()
 
-  const { keyword } = searchParams
+  const { keyword, page } = searchParams
+
+  const offset = page ? Number(page) * PER_PAGE : 0
 
   const tracks =
-    keyword && spotifyApi ? (await spotifyApi.searchTracks(keyword)).body.tracks.items : []
+    keyword && spotifyApi
+      ? (await spotifyApi.searchTracks(keyword, { limit: PER_PAGE, offset })).body.tracks.items
+      : []
 
   if (!spotifyApi) {
     return <div className="max-w-5xl mx-auto px-4 py-6">Please login to use this app :)</div>
