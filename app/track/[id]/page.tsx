@@ -1,18 +1,14 @@
-import { clerkClient, auth } from '@clerk/nextjs/server'
-import SpotifyWebApi from 'spotify-web-api-node'
 import { notFound } from 'next/navigation'
 
+import useSpotifyApi from '@/lib/spotifyApi'
 import SpotifyTrackLink from '@/components/Spotify/TrackLink'
 
 export default async function Track({ params: { id } }) {
-  const { userId } = auth()
+  const spotifyApi = await useSpotifyApi()
 
-  // Call the Clerk API to get the user's OAuth access tokens
-  const clerkResponse = await clerkClient().users.getUserOauthAccessToken(userId, 'oauth_spotify')
-  const accessToken = clerkResponse.data[0]?.token
-
-  const spotifyApi = new SpotifyWebApi()
-  spotifyApi.setAccessToken(accessToken)
+  if (!spotifyApi) {
+    return <div className="max-w-5xl mx-auto px-4 py-6">Please login to use this app :)</div>
+  }
 
   const result = await spotifyApi.getTrack(id)
 
